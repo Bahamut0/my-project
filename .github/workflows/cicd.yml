@@ -1,0 +1,18 @@
+name: CI/CD DEV
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        strategy:
+            matrix:
+                node-version: [18.x, 20.x, 22.x]
+        
+        steps:
+        - name: Checkout repository
+          uses: actions/checkout@v4
